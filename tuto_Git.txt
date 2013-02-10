@@ -1,0 +1,45 @@
+configurer windows pour github
+
+# configurer le username et le mail
+git config --global user.name "Your Name Here"
+git config --global user.email "Your email here"
+
+# creation de la cle publique
+cd ~/.ssh
+ssh-keygen -t rsa -C "your_email@youremail.com"
+clip < ~/.ssh/id_rsa.pub
+
+go sur github, ton compte, account settings, ssh (dans le menu sur la gauche)
+et copier ta clé publique.
+
+# et un pti test
+ssh -T git@github.com
+
+commandes de base
+
+# initialiser le depot
+git init
+git status
+# ajouter un fichier au "staging" (espace de travail local)
+git add file.ext
+git status
+# commit + message (valider un changement, en local)
+git commit -m "message qui decrit ce qu'on commit"
+...
+# historique
+git log
+
+remote repositories
+
+# configurer le depo distant (propre au dossier de travail, propre au "git init")
+git remote add origin git@github.com:CristaLCorp/test.git
+
+# envoyer ses commit sur le serv
+git push -u origin master
+
+# dl depuis le serv
+git pull origin master
+
+# voir les differences dans les fichiers
+git diff HEAD
+
